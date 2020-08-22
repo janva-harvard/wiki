@@ -17,13 +17,16 @@
     <div class="row">
       <div class="sidebar col-lg-2 col-md-3">
         <h2>Wiki</h2>
-        <form action="" method="post">
-          <input
+        <form action="{% url 'wiki:index'%}" method="post">
+          <!--Cross site request forgery token -->
+          {% csrf_token %} {{ search_form }}
+          <!-- <input
             class="search"
             type="text"
             name="q"
             placeholder="Search Encyclopedia"
           />
+          -->
         </form>
         <div>
           <a href="{% url 'wiki:index' %}">Home</a>
