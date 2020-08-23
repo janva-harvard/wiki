@@ -3,5 +3,6 @@
 <h1>Create a new wiki page</h1>
 <form action="{%url 'wiki:newwiki'%}" method="post">
   {% csrf_token %} {{new_form}}
+  <input type="submit" />
 </form>
 {%endblock%}

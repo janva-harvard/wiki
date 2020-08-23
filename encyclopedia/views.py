@@ -15,6 +15,10 @@ class SearchForm(forms.Form):
 
 class newWikiForm(forms.Form):
     titleField = forms.CharField(label="Wiki title")
+    textArea = forms.CharField(label="",
+                               widget=forms.Textarea(attrs={'rows': 1,
+                                                            'cols': 40,
+                                                            'style': 'height: 5em;'}))
 
 
 def handleSearchRequest(request):
