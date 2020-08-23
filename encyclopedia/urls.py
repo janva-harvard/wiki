@@ -5,5 +5,6 @@ app_name = "wiki"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("<str:entry>", views.article, name="entry")
+    path("<str:entry>", views.article, name="entry"),
+    path("editor/newwiki", views.newwiki, name="newwiki")
 ]

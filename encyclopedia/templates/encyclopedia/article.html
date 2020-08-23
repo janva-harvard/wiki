@@ -1,2 +1,7 @@
-{% extends "encyclopedia/layout.html" %} {%block title%} Placeholder for title
-{%endblock%} {%block body%} {{entry|safe}} {%endblock%}
+{% extends "encyclopedia/layout.html" %} {% block title %} Encyclopedia
+{%endblock %} {% block body %}
+<h1>{{heading}}</h1>
+<p>
+  {{entry|safe}}
+</p>
+{% endblock %}

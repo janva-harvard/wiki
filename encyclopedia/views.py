@@ -13,6 +13,10 @@ class SearchForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'search'}))
 
 
+class newWikiForm(forms.Form):
+    titleField = forms.CharField(label="Wiki title")
+
+
 def handleSearchRequest(request):
     search_form = SearchForm(request.POST)
     # ugh uggly
@@ -49,16 +53,25 @@ def index(request):
 
 
 def article(request, entry):
+    print("called")
     converter = Markdown()
     the_entry = util.get_entry(entry)
     if(the_entry == None):
-
         return render(request, "encyclopedia/error.html", {
-            "entry": entry
+            "entry": entry,
+            "search_form": SearchForm(),
         })
     html = converter.convert(the_entry)
 
     return render(request, "encyclopedia/article.html", {
-        "entry": html
+        # code duplication search_form attribute potential issue
+        "entry": html, "search_form": SearchForm()
         # "entry": util.get_entry(entry)
+    })
+
+
+def newwiki(request):
+    return render(request, "encyclopedia/newwiki.html", {
+        "search_form": SearchForm(),
+        "new_form":  newWikiForm()
     })

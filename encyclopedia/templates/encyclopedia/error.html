@@ -1,5 +1,6 @@
-{% extends "encyclopedia/layout.html" %} {% block title %} Encyclopedia query
-error {%endblock %} {% block body %}
-<h1>Page not found</h1>
-<p>We can't seem to find the route <em>{{entry}}</em></p>
+{% extends "encyclopedia/layout.html" %} {% block title %} Encyclopedia error
+{%endblock %} {% block body %}
+<h1>Oops something went wrong</h1>
+<p>We cannot seem to find the page <span class="route_text">{{entry}}</span></p>
+
 {% endblock %}
