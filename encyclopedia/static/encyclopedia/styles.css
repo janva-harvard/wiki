@@ -58,3 +58,20 @@ textarea {
   line-height: 1.5;
   padding: 0.375rem 0.75rem;
 }
+.link-button:hover {
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: white;
+}
+.link-button {
+  display: inline-block;
+  color: white;
+  background-color: #0077ff;
+  border-color: #0077ff;
+  border-radius: 0.25rem;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  text-decoration: none;
+}

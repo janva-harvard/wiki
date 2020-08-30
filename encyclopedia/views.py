@@ -85,15 +85,14 @@ def newwiki(request):
     if request.method == "POST":
         form = newWikiForm(request.POST)
         if form.is_valid():
-            print("Form is valid************************")
             title = form.cleaned_data["wikiTitle"]
             content = form.cleaned_data["wikiContent"]
+            content = "#"+title+"\n"+content
             # check for duplicates
             if util.get_entry(title) == None:
                 # save to db
                 util.save_entry(title, content)
             else:
-                print("alredy exists************************")
                 # Hmm might be a problem
                 return render(request, "encyclopedia/newwiki.html", {
                     "search_form": SearchForm(),
