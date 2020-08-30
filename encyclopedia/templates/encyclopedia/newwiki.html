@@ -1,8 +1,13 @@
 {%extends "encyclopedia/layout.html" %} {% block title %}New wiki page
 {%endblock%} {% block body %}
 <h1>Create a new wiki page</h1>
+{% if duplicateError %}
+<div class="error_box">
+  It seems there already exist at wiki entry with that title.
+</div>
+{% endif %}
 <form action="{%url 'wiki:newwiki'%}" method="post">
   {% csrf_token %} {{new_form}}
-  <input type="submit" />
+  <input class="submit_button" type="submit" />
 </form>
 {%endblock%}

@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %} {% block title %} Encyclopedia error
+{%endblock %} {% block body %}
+<h1>
+  Edit article with title <span><em>{{title}}</em> </span>
+</h1>
+{% if error %}
+<div class="error_box">
+  It seems there already exist at wiki entry with that title.
+</div>
+{% endif %}
+
+<form action="{%url 'wiki:editEntry'%}" method="post">
+  {% csrf_token %}{{editForm}}
+  <input class="submit_button" type="submit" value="Save" />
+  <input class="submit_button" type="button" value="Cancel" />
+</form>
+
+{% endblock %}
