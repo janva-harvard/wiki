@@ -100,9 +100,11 @@ def newwiki(request):
                     "new_form":  newWikiForm(),
                     "duplicateError": True
                 })
-            return HttpResponseRedirect(reverse("wiki:index"), {
-                "duplicateError": False
-            })
+            return HttpResponseRedirect(reverse("wiki:entry", kwargs={'entry': title}))
+
+            # return HttpResponseRedirect(reverse("wiki:index"), {
+            #     "duplicateError": False
+            # })
 
     else:
         return render(request, "encyclopedia/newwiki.html", {
@@ -119,12 +121,7 @@ def edit(request):
             article = form.cleaned_data["wikiContent"]
             title = request.session["article"]
             util.save_entry(title, article)
-            return HttpResponseRedirect(reverse("wiki:index"), {
-                "duplicateError": False
-            })
-        return HttpResponseRedirect(reverse("wiki:index"), {
-            "duplicateError": False
-        })
+            return HttpResponseRedirect(reverse("wiki:entry", kwargs={'entry': title}))
 
     return render(request, "encyclopedia/edit_entry.html", {
         "editForm": EditForm({"wikiContent": util.get_entry(request.session["article"])}),

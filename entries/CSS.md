@@ -1,3 +1,3 @@
 # CSS
 
-CSS is a language that can be used to add style to an [HTML](/wiki/HTML) page. Some more on  css.
+CSS is a language that can be used to add style to an [HTML](/wiki/HTML) page. Something more on css.
