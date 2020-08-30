@@ -19,6 +19,7 @@
         <form action="{% url 'wiki:index'%}" method="post">
           <!--Cross site request forgery token -->
           {% csrf_token %} {{ search_form }}
+          <!-- might be better as static form here to avoid code duplication -->
           <!-- <input
             class="search"
             type="text"
@@ -32,7 +33,9 @@
         <div>
           <a href="{%url 'wiki:newwiki'%}">Create New Page</a>
         </div>
-        <div>Random Page</div>
+        <div>
+          <a href="{%url 'wiki:randomentry'%}">Random Page</a>
+        </div>
         {% block nav %} {% endblock %}
       </div>
       <div class="main col-lg-10 col-md-9">{% block body %} {% endblock %}</div>

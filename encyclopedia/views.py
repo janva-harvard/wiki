@@ -126,3 +126,8 @@ def edit(request):
         "editForm": EditForm({"wikiContent": util.get_entry(request.session["article"])}),
         "title": request.session["article"],
     })
+
+
+def random_entry(request):
+    entry = util.get_random_entry()
+    return article(request, entry)
